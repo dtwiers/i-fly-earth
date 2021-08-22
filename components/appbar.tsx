@@ -15,7 +15,7 @@ const Appbar = () => {
 				<div className='mx-auto px-6 max-w-screen-md h-20 flex items-center justify-between'>
 					<Link href='/'>
 						<a>
-							<h1 className='font-medium'>Rice Bowl</h1>
+							<h1 className='font-medium'>I Fly Earth</h1>
 						</a>
 					</Link>
 
