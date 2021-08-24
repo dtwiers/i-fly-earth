@@ -8,6 +8,7 @@ specifiers:
   eslint: ^7.29.0
   eslint-config-next: ^11.0.0
   eslint-config-prettier: ^8.3.0
+  fp-ts: ^2.11.1
   next: 11.0.0
   next-pwa: ^5.2.21
   next-themes: ^0.0.14
@@ -23,6 +24,7 @@ specifiers:
   webpack: ^5.51.1
 
 dependencies:
+  fp-ts: 2.11.1
   next: 11.0.0_b01aebad0dbc41fc3d5d299e39a0c4a3
   next-pwa: 5.2.21_85b3551897a7b2b4ca1aa6533ae9eb76
   next-themes: 0.0.14_202b18601d71dc92f6dbf39b46c5242f
@@ -3141,6 +3143,10 @@ packages:
 
   /foreach/2.0.5:
     resolution: {integrity: sha1-C+4AUBiusmDQo6865ljdATbsG5k=}
+    dev: false
+
+  /fp-ts/2.11.1:
+    resolution: {integrity: sha512-CJOfs+Heq/erkE5mqH2mhpsxCKABGmcLyeEwPxtbTlkLkItGUs6bmk2WqjB2SgoVwNwzTE5iKjPQJiq06CPs5g==}
     dev: false
 
   /fraction.js/4.1.1:
