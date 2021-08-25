@@ -160,76 +160,108 @@ const Index = () => {
             )
           )
         )}
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          latitude:{" "}
-          {pipe(
-            geoResult.latitudeDms,
-            O.fold(
-              () => "Not Available",
-              (lat) => `${lat.degrees}° ${lat.minutes}' ${lat.seconds}"`
-            )
-          )}
-        </p>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          longitude:{" "}
-          {pipe(
-            geoResult.longitudeDms,
-            O.fold(
-              () => "Not Available",
-              (long) => `${long.degrees}° ${long.minutes}' ${long.seconds}"`
-            )
-          )}
-        </p>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          altitude:{" "}
-          {pipe(
-            geoResult.altitude,
-            O.fold(
-              () => "Not Available",
-              (alt) => `${metersToFeet(alt).toFixed(2)}'`
-            )
-          )}
-        </p>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          speed:{" "}
-          {pipe(
-            geoResult.speed,
-            O.fold(
-              () => "Not Available",
-              ({ mph }) => `${mph.toFixed(2)} mph`
-            )
-          )}
-        </p>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          heading:{" "}
-          {pipe(
-            geoResult.heading,
-            O.fold(
-              () => "Not Available",
-              (heading) => `${heading} (${toCardinalDirection(heading)})`
-            )
-          )}
-        </p>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          altitude Accuracy:{" "}
-          {pipe(
-            geoResult.altitudeAccuracy,
-            O.fold(
-              () => "Not Available",
-              (altAcc) => `${altAcc.toFixed(2)}`
-            )
-          )}
-        </p>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          accuracy:{" "}
-          {pipe(
-            geoResult.accuracy,
-            O.fold(
-              () => "Not Available",
-              (acc) => `${acc}`
-            )
-          )}
-        </p>
+        <dl>
+          <dd className="mt-2 text-gray-700 dark:text-gray-200 font-bold inline-block">
+            latitude:
+          </dd>
+          <dt className="text-gray-600 dark:text-gray-400 inline-block ml-2">
+            {pipe(
+              geoResult.latitudeDms,
+              O.fold(
+                () => "Not Available",
+                (lat) =>
+                  `${lat.degrees}° ${lat.minutes}' ${lat.seconds.toFixed(3)}"`
+              )
+            )}
+          </dt>
+        </dl>
+        <dl>
+          <dd className="mt-2 text-gray-700 dark:text-gray-200 font-bold inline-block">
+            longitude:
+          </dd>
+          <dt className="text-gray-600 dark:text-gray-400 inline-block ml-2">
+            {pipe(
+              geoResult.longitudeDms,
+              O.fold(
+                () => "Not Available",
+                (long) =>
+                  `${long.degrees}° ${long.minutes}' ${long.seconds.toFixed(
+                    3
+                  )}"`
+              )
+            )}
+          </dt>
+        </dl>
+        <dl>
+          <dd className="mt-2 text-gray-700 dark:text-gray-200 font-bold inline-block">
+            altitude:
+          </dd>
+          <dt className="text-gray-600 dark:text-gray-400 inline-block ml-2">
+            {pipe(
+              geoResult.altitude,
+              O.fold(
+                () => "Not Available",
+                (alt) => `${metersToFeet(alt).toFixed(1)}'`
+              )
+            )}
+          </dt>
+        </dl>
+        <dl>
+          <dd className="mt-2 text-gray-700 dark:text-gray-200 font-bold inline-block">
+            speed:
+          </dd>
+          <dt className="text-gray-600 dark:text-gray-400 inline-block ml-2">
+            {pipe(
+              geoResult.speed,
+              O.fold(
+                () => "Not Available",
+                ({ mph }) => `${mph.toFixed(1)} mph`
+              )
+            )}
+          </dt>
+        </dl>
+        <dl>
+          <dd className="mt-2 text-gray-700 dark:text-gray-200 font-bold inline-block">
+            heading:
+          </dd>
+          <dt className="text-gray-600 dark:text-gray-400 inline-block ml-2">
+            {pipe(
+              geoResult.heading,
+              O.fold(
+                () => "Not Available",
+                (heading) => `${heading} (${toCardinalDirection(heading)})`
+              )
+            )}
+          </dt>
+        </dl>
+        <dl>
+          <dd className="mt-2 text-gray-700 dark:text-gray-200 font-bold inline-block">
+            altitude accuracy:
+          </dd>
+          <dt className="text-gray-600 dark:text-gray-400 inline-block ml-2">
+            {pipe(
+              geoResult.altitudeAccuracy,
+              O.fold(
+                () => "Not Available",
+                (altAcc) => `${metersToFeet(altAcc).toFixed(1)}'`
+              )
+            )}
+          </dt>
+        </dl>
+        <dl>
+          <dd className="mt-2 text-gray-700 dark:text-gray-200 font-bold inline-block">
+            accuracy:
+          </dd>
+          <dt className="text-gray-600 dark:text-gray-400 inline-block ml-2">
+            {pipe(
+              geoResult.accuracy,
+              O.fold(
+                () => "Not Available",
+                (acc) => `${metersToFeet(acc).toFixed(1)}'`
+              )
+            )}
+          </dt>
+        </dl>
       </section>
     </Page>
   );
